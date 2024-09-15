@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ff00bb;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: nowrap; /* Tetap sejajar kiri-kanan */
+    flex-direction: row; /* Sejajarkan flipbook secara horizontal */
+}
+
+.flipbook {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(165, 67, 230);
+    border: 1px solid #000000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.page img {
+    max-width: 100%;
+    height: auto;
+}
+
+.page h2 {
+    margin: 0 0 15px 0;
+    color: #000000;
+    font-size: 1.5em;
+}
+
+.page p {
+    font-size: 1em;
+    color: #000000;
+    line-height: 1.6;
+    margin: 0;
+}
+
+#imgPage2, #imgPage3, #imgPage4, #imgPage5,
+#txtPage2, #txtPage3, #txtPage4, #txtPage5 {
+    transform: rotateY(-180deg);
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #031cfe;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #000000;
+}
+/* Gaya untuk Love yang muncul */
+
+
+/* Tombol dan modal notifikasi seperti sebelumnya */
+#notifyButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1900ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#notifyButton:hover {
+    background-color: #000000;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+    
+/* Responsiveness for medium screens */
+@media (max-width: 1024px) {
+    .flipbook {
+        width: 280px;
+        height: 370px;
+    }
+
+    .page h2 {
+        font-size: 1.3em;
+    }
+
+    .page p {
+        font-size: 0.9em;
+    }
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .flipbook {
+        width: 250px;
+        height: 350px;
+    }
+
+    .page h2 {
+        font-size: 1.2em;
+    }
+
+    .page p {
+        font-size: 0.85em;
+    }
+}
+
+/* Responsiveness for very small screens */
+@media (max-width: 480px) {
+    .container {
+        gap: 5px;
+    }
+
+    .flipbook {
+        width: 200px;
+        height: 300px;
+    }
+
+    .page h2 {
+        font-size: 1.1em;
+    }
+
+    .page p {
+        font-size: 0.8em;
+    }
+}
